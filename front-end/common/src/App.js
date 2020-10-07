@@ -1,11 +1,21 @@
 import React from 'react';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom';
 
-function App() {
+import Header from './Header/Header'
+
+const App = () => {
   return (
-    <div className="App">
-      <h2>Welcome to common site</h2>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+      </div>
+    </Router>
+
   );
 }
 
