@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Header.css'
 
+import AccountMenu from './AccountMenu/AccountMenu'
+
 const Header = () => {
     const [show, handleShow] = useState(false)
 
@@ -25,8 +27,8 @@ const Header = () => {
             </div>
             <div className="header__right">
                 <h3 className="header__item"><Link to='/'>Home</Link></h3>
-                <h3 className="header__item"><Link to='/articles'>Articles</Link></h3>
-                <h3 className="header__item"><Link to='/contact'>Contact</Link></h3>
+                <h3 className="header__item"><Link to='/github'>Github</Link></h3>
+                <AccountMenu />
             </div>
 
         </div>

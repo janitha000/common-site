@@ -1,0 +1,31 @@
+.profile{
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: flex-end;
+    padding: 50px 0px;
+}
+
+.profile__form{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.form__item{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.form__item > input{
+    width: 300px;
+    border: none;
+    border-bottom: solid black 1px;
+    outline-width: 0;
+    background-color: whitesmoke;
+}
+
+.form__item > input:focus{
+    border-bottom: solid green 2px;
+}

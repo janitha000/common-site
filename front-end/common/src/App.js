@@ -6,21 +6,55 @@ import {
   Switch,
 } from 'react-router-dom';
 
+
 import Header from './Header/Header'
 import Home from './Home/Home'
+import Github from './Github/Github'
+import Profile from './Profile/Profile'
+import ProfileWithHook from './Profile/ProfileWithHook'
+
+import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import { ApolloProvider } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+
+
+const httpLink = createHttpLink({
+  uri: 'https://api.github.com/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = '37a9250d844a7fb6788c44abb3b35b4f9fe926c8'
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    }
+  }
+});
+
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache()
+});
+
 
 const App = () => {
   return (
-    <Router>
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          {/* <Route path="/articles" component={Blogs} />
-          <Route path="/contact" component={Contact} /> */}
-        </Switch>
-      </div>
-    </Router>
+    <ApolloProvider client={client}>
+      <Router>
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path="/github" component={() => (<Github username="janitha000" />)} />
+            <Route path="/profile" component={ProfileWithHook} />
+          </Switch>
+        </div>
+      </Router>
+    </ApolloProvider>
+
+
 
   );
 }

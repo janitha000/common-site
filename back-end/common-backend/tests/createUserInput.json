@@ -1,0 +1,12 @@
+{
+    "path": "/user",
+    "httpMethod": "POST",
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "queryStringParameters": null,
+    "pathParameters": null,
+    "stageVariables": null,
+    "body": "{\"user\": {\"name\" : \"Test from serverless test\" , \"age\" : 30}}",
+    "isBase64Encoded": false
+}

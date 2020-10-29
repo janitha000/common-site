@@ -1,0 +1,39 @@
+.box{
+    margin: 20px;
+    height: 200px;
+    width: 200px;
+    background-color:  rgb(243, 241, 241);
+    border-radius: 10px;
+    position: relative;
+}
+.box:hover .box__icon{
+    opacity: 0.3;
+}
+
+.box:hover .box__middle{
+    opacity: 1;
+}
+
+.box__icon{
+    opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.box__middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+  }
+
+  .box__text {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+  }

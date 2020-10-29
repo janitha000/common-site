@@ -1,0 +1,39 @@
+.homecard{
+    margin: 20px;
+    height: 200px;
+    width: 200px;
+    background-color:  rgb(243, 241, 241);
+    border-radius: 10px;
+    position: relative;
+}
+
+.homecard__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(99, 99, 99);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .3s ease;
+    opacity: 0.8;
+    border-radius: 10px;
+
+  }
+
+  .homecard:hover .homecard__overlay {
+    height: 100%;
+  }
+
+  .overlay__text {
+    white-space: nowrap; 
+    color: black;
+    font-size: 20px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
