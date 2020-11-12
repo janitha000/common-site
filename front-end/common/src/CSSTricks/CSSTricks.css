@@ -1,0 +1,100 @@
+.parent{
+    margin-top: 40px;
+    background-color: darkblue;
+    height: 400px;
+    width: 400px;
+}
+
+.child{
+    background-color: brown;
+    width: 50%;
+    height: 50%;
+    transition: transform 1s ease-in 100ms
+}
+
+.parent:hover .child{
+    animation: left-to-right 1s ease-in forwards 3;       
+}
+
+.parent2{
+    margin-top: 40px;
+    background-color: darkblue;
+    height: 400px;
+    width: 400px;
+}
+
+.child2{
+    background-color: brown;
+    width: 50%;
+    height: 50%;
+    animation: left-to-right 1s ease-in forwards infinite alternate;
+}
+
+.parent2:hover .child2{
+    animation-play-state: paused;
+}
+
+
+
+@keyframes left-to-right{
+    0%{
+        transform: translateX(0%);
+    }
+    33%{
+        transform: translateY(100%);
+    }
+    66%{
+        transform: translateX(100%) translateY(100%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+
+/* AND */
+div.red{
+    background-color: red;
+}
+
+/* OR */
+span, .green{
+    background-color: green;
+}
+
+/* Anything inside */
+div b{
+    background-color: blue;
+}
+
+/* Direct child */
+div > b{
+    background-color: grey;
+}
+
+
+/* Select sibilings after */
+/* li.brown + li Only one sibling */
+li.brown ~ li{
+    background-color: hotpink;
+}
+
+li:nth-child(3){
+    background-color: goldenrod
+}
+
+.elements> li:nth-child(2n){
+    background-color: indigo;
+}
+
+input:focus{
+    background-color: chartreuse;
+}
+
+li{
+    width :100px;
+}
+
+/* ^ start with, $ end with, * anywhere */
+[data-blue^="12"]{
+    background-color: blue;
+}
