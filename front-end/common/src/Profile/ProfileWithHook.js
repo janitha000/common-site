@@ -25,6 +25,26 @@ function ProfileWithHook() {
             type: actionTypes.SET_USER,
             user: updatedUser
         })
+
+        createUser(updatedUser);
+    }
+
+    const createUser = async (user) => {
+        try {
+            const url = 'https://cbmb5jis7g.execute-api.ap-southeast-1.amazonaws.com/dev/user'
+
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(user)
+            };
+            const res = await fetch(url, requestOptions)
+            const data = await res.json();
+        }
+        catch (err) {
+            console.log(err)
+        }
+
     }
 
     return (

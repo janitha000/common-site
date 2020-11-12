@@ -21,12 +21,21 @@ functions:
       - http:
           method: GET
           path: /user
+          cors: true
+  getUserByName:
+    handler: handlers/user/getUser.getUserByName
+    events:
+      - http:
+          method: GET
+          path: /user/{name}
+          cors: true
   createUser:
     handler: handlers/user/createUser.handler
     events:
       - http:
           method: POST
           path: /user
+          cors: true
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details

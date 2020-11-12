@@ -26,7 +26,10 @@ function Profile() {
             type: actionTypes.SET_USER,
             user: updatedUserToStore
         })
+
     }
+
+
 
     return (
         <div className="profile" style={{ "margin-top": "50px" }}>
