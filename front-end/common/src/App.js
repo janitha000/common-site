@@ -12,6 +12,8 @@ import Home from './Home/Home'
 import Github from './Github/Github'
 import Profile from './Profile/Profile'
 import ProfileWithHook from './Profile/ProfileWithHook'
+import CSSTricks from './CSSTricks/CSSTricks'
+import HooksExample from './HooksExample/HooksExample'
 
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { ApolloProvider } from '@apollo/client';
@@ -49,6 +51,8 @@ const App = () => {
             <Route exact path='/' component={Home} />
             <Route path="/github" component={() => (<Github username="janitha000" />)} />
             <Route path="/profile" component={ProfileWithHook} />
+            <Route path="/css" component={CSSTricks} />
+            <Route path="/hooks" component={HooksExample} />
           </Switch>
         </div>
       </Router>

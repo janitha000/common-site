@@ -57,9 +57,9 @@ div.red{
 }
 
 /* OR */
-span, .green{
+/* span, .green{
     background-color: green;
-}
+} */
 
 /* Anything inside */
 div b{
