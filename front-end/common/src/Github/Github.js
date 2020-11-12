@@ -1,15 +1,19 @@
 import React from 'react'
 import { useQuery, gql } from '@apollo/client';
-import { useStateValue } from '../StateProvider'
+import { useStateValue } from '../StateProvider';
+import { useLocalStorage } from '../Hooks/useLocalStorage'
 import './Github.css'
 
 import Avatar from '../Common/Avatar/Avatar'
 
 export const Github = ({ username }) => {
     const [{ user }, dispatch] = useStateValue()
+    const [github, setGithub] = useLocalStorage('github', '')
+
+    let userName = github ? github : (user?.github)
     const GET_CURRENT_USER = gql`
     {
-        user(login: "${user?.github}") {
+        user(login: "${userName}") {
           id
           email
           avatarUrl

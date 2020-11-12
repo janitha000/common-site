@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useStateValue } from '../StateProvider'
 import { actionTypes } from '../reducer'
 import { useInput } from '../Hooks/useInput'
+import { useLocalStorage } from '../Hooks/useLocalStorage'
 import './Profile.css'
 
 function ProfileWithHook() {
@@ -9,7 +10,8 @@ function ProfileWithHook() {
     const { value: name, bind: bindName } = useInput();
     const { value: age, bind: bindAge } = useInput();
     const { value: email, bind: bindEmail } = useInput();
-    const { value: github, bind: bindGithub } = useInput();
+    //const { value: github, bind: bindGithub } = useInput();
+    const [github, setGithub] = useLocalStorage('github', '')
 
 
 
@@ -63,9 +65,13 @@ function ProfileWithHook() {
                         <h3>Age</h3>
                         <input className='sender__input' placeholder={user?.age} {...bindAge} />
                     </div>
-                    <div className="form__item">
+                    {/* <div className="form__item">
                         <h3>Github User Name</h3>
                         <input className='sender__input' placeholder={user?.github} {...bindGithub} />
+                    </div> */}
+                    <div className="form__item">
+                        <h3>Github User Name</h3>
+                        <input className='sender__input' value={github} placeholder={github} onChange={e => setGithub(e.target.value)} />
                     </div>
 
 
