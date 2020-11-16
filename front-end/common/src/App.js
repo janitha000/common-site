@@ -14,6 +14,7 @@ import Profile from './Profile/Profile'
 import ProfileWithHook from './Profile/ProfileWithHook'
 import CSSTricks from './CSSTricks/CSSTricks'
 import HooksExample from './HooksExample/HooksExample'
+import Trivia from './Trivia/Trivia'
 
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { ApolloProvider } from '@apollo/client';
@@ -53,6 +54,7 @@ const App = () => {
             <Route path="/profile" component={ProfileWithHook} />
             <Route path="/css" component={CSSTricks} />
             <Route path="/hooks" component={HooksExample} />
+            <Route path="/trivia" component={Trivia} />
           </Switch>
         </div>
       </Router>

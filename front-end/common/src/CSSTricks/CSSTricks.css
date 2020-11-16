@@ -98,3 +98,23 @@ li{
 [data-blue^="12"]{
     background-color: blue;
 }
+
+.position{
+    background-color: white;
+}
+.parent-1{
+    background-color: blue;
+    position: relative;
+}
+
+.child-1{
+    background-color: violet;
+    position: absolute;
+    left: 100px;
+}
+.child-2{
+    background-color: gold;
+}
+.child-3{
+    background-color: grey;
+}

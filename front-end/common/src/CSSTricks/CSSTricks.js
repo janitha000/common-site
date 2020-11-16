@@ -41,6 +41,16 @@ const CSSTricks = () => {
                     <li>Item 5</li>
                 </ul>
             </div>
+
+            <div classname="position" style={{ "margin-top": "40px" }}>
+                <div className="parent-1">
+                    Parent
+                    <div className="child-1">Child 1</div>
+                    <div className="child-2">Child 2</div>
+                    <div className="child-3">Child 3</div>
+                </div>
+
+            </div>
         </>
     )
 }
