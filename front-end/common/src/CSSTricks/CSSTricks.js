@@ -51,6 +51,22 @@ const CSSTricks = () => {
                 </div>
 
             </div>
+
+            <div className="grid-container" >
+                <div className="grid-1">Child 1</div>
+                <div className="grid-2">Child 2</div>
+                <div className="grid-3">Child 3</div>
+                <div className="grid-4">Child 4</div>
+                <div className="grid-5">Child 5</div>
+            </div>
+
+            <div className="grid-container2" >
+                <div className="grid-12">Child 1</div>
+                <div className="grid-22">Child 2</div>
+                <div className="grid-32">Child 3</div>
+                <div className="grid-42">Child 4</div>
+                <div className="grid-52">Child 5</div>
+            </div>
         </>
     )
 }

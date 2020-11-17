@@ -118,3 +118,52 @@ li{
 .child-3{
     background-color: grey;
 }
+
+.grid-container{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 100px 200px;
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 10px;
+}
+
+.grid-container > div{
+    background-color: wheat;
+    border: 1px solid black;
+    padding: 10px 10px;
+}
+
+.grid-1{
+    grid-column: 1 / -1;
+}
+
+.grid-2{
+    grid-row-start: 2;
+    grid-row-end: 4;
+}
+
+.grid-3{
+    grid-row: span 1;
+}
+
+.grid-5{
+    grid-column: span 2;
+}
+
+
+.grid-container2{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 100px 200px;
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 10px;
+    justify-content: space-around;
+    align-content: center;
+    height: 50vh;
+}
+
+.grid-container2 > div{
+    background-color: wheat;
+    border: 1px solid black;
+    padding: 10px 10px;
+}
