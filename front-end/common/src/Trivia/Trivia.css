@@ -7,3 +7,39 @@
     margin: 1rem 2rem;
     max-width: 900px;
 }
+
+.trivia-form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+    padding: 10px;
+    background-color: white;
+
+}
+
+.form-option{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-option > label{
+    color: #777;
+    margin-bottom: 5px;
+    font-size: .75rem;
+}
+
+.form-btn{
+    background-color: hsl(200, 100%, 50%);
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+}
+
+.form-btn:hover{
+    background-color: hsl(200, 100%, 30%);
+}

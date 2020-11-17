@@ -1,16 +1,43 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Trivia.css'
 import axios from 'axios'
 
 import FlashCardList from './FlashCardList'
 
 const Trivia = () => {
-    const [questions, setQuestions] = useState(SAMPLE)
+    const [questions, setQuestions] = useState([])
+    const [categories, setCategories] = useState([])
+
+    const categoryEl = useRef();
+    const amountRef = useRef();
 
     useEffect(() => {
-        axios.get('https://opentdb.com/api.php?amount=10')
+        axios.get('https://opentdb.com/api_category.php')
             .then(res => {
-                debugger
+                setCategories(res.data.trivia_categories)
+            })
+    }, [])
+
+    useEffect(() => {
+
+    }, [])
+
+    const decodeHtml = (str) => {
+        const textArea = document.createElement('textarea')
+        textArea.innerHTML = str;
+        return textArea.value;
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.get('https://opentdb.com/api.php?amount=10', {
+            params: {
+                amount: amountRef.current.value,
+                category: categoryEl.current.value
+            }
+        })
+            .then(res => {
+
                 setQuestions(res.data.results.map((item, index) => {
                     let { question, correct_answer, incorrect_answers } = item;
                     correct_answer = decodeHtml(correct_answer)
@@ -23,23 +50,26 @@ const Trivia = () => {
                     }
                 }))
             })
-    }, [])
-
-    const decodeHtml = (str) => {
-        const textArea = document.createElement('textarea')
-        textArea.innerHTML = str;
-        return textArea.value;
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
     }
 
     return (
         <div className="trivia">
             <form className="trivia-form" onSubmit={handleSubmit}>
-
+                <div className="form-option">
+                    <label htmlFor="category">Category</label>
+                    <select id="category" ref={categoryEl}>
+                        {categories.map(category => (
+                            <option value={category.id} key={category.id}>{category.name}</option>
+                        ))}
+                    </select>
+                </div>
+                <div className="form-option">
+                    <label htmlFor="amount">Number of Questions</label>
+                    <input type="number" id="amount" min="1" step="1" defaultValue={10} ref={amountRef} />
+                </div>
+                <div className="form-option">
+                    <button className="form-btn">Generate</button>
+                </div>
             </form>
             <div className="trivia-container">
                 <FlashCardList questions={questions} />
